@@ -3,6 +3,7 @@ package com.quran.labs.androidquran;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import android.app.AlertDialog;
@@ -16,9 +17,15 @@ import android.os.AsyncTask;
 import android.os.AsyncTask.Status;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.text.Html;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.quran.labs.androidquran.common.GestureQuranActivity;
@@ -28,22 +35,62 @@ import com.quran.labs.androidquran.util.DatabaseHandler;
 import com.quran.labs.androidquran.util.QuranSettings;
 import com.quran.labs.androidquran.util.QuranUtils;
 
-public class TranslationActivity extends GestureQuranActivity {
+public class TranslationActivity extends GestureQuranActivity implements OnInitListener {
 
 	private int page = 1;
     private AsyncTask<?, ?, ?> currentTask;
     private ProgressDialog pd = null;
     private TextView txtTranslation;
+    private TextToSpeech tts;
+    private ImageButton btnSpeak;
+	private boolean speakerEnabled = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.quran_translation);
-		txtTranslation = (TextView) findViewById(R.id.translationText);
-		loadPageState(savedInstanceState);
-		gestureDetector = new GestureDetector(new QuranGestureDetector());
-		adjustTextSize();
-		renderTranslation();
+		try {
+			setContentView(R.layout.quran_translation);
+			txtTranslation = (TextView) findViewById(R.id.translationText);
+			btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
+			loadPageState(savedInstanceState);
+			gestureDetector = new GestureDetector(new QuranGestureDetector());
+			adjustTextSize();
+			renderTranslation();
+			checkTtsSupport();
+			btnSpeak.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					if (tts != null && speakerEnabled) {
+						tts.speak(txtTranslation.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+					}
+				}
+			});
+		} catch (Exception e) {
+			System.out.println();
+		}
+	}
+	
+	private void checkTtsSupport() {
+		Intent checkIntent = new Intent();
+		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+		startActivityForResult(checkIntent, ApplicationConstants.TTS_CHECK_CODE);
+	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == ApplicationConstants.TTS_CHECK_CODE) {
+	        if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+	            // success, create the TTS instance
+	            tts = new TextToSpeech(this, this);
+	        } else {
+	            // missing data, install it
+	            Intent installIntent = new Intent();
+	            installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+	            startActivity(installIntent);
+	        }
+	    }
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 	
 	private void adjustTextSize() {
@@ -70,7 +117,6 @@ public class TranslationActivity extends GestureQuranActivity {
 			renderTranslation();
 		}	
 	}
-	
 	
 	public void loadPageState(Bundle savedInstanceState){
 		page = savedInstanceState != null ? savedInstanceState.getInt("page") : QuranSettings.getInstance().getLastPage();
@@ -243,6 +289,11 @@ public class TranslationActivity extends GestureQuranActivity {
 		super.onDestroy();
 		if ((currentTask != null) && (currentTask.getStatus() == Status.RUNNING))
 			currentTask.cancel(true);
+		
+		if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
 	}
 	
 	public void promptForTranslationDownload(final List<String> translationsToGet){
@@ -268,5 +319,39 @@ public class TranslationActivity extends GestureQuranActivity {
     	AlertDialog alert = dialog.create();
     	alert.setTitle(R.string.downloadPrompt_title);
     	alert.show();
+	}
+
+	// Implements TextToSpeech.OnInitListener.
+	// http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/app/TextToSpeechActivity.html
+	public void onInit(int status) {
+		// status can be either TextToSpeech.SUCCESS or TextToSpeech.ERROR.
+		if (status == TextToSpeech.SUCCESS) {
+			// Set preferred language to US english.
+			// Note that a language may not be available, and the result will
+			// indicate this.
+			int result = tts.setLanguage(Locale.US);
+			// Try this someday for some interesting results.
+			// int result mTts.setLanguage(Locale.FRANCE);
+			if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+				// Lanuage data is missing or the language is not supported.
+				Log.e(ApplicationConstants.EXCEPTION_TAG, "Language is not available.");
+				btnSpeak.setEnabled(false);
+				btnSpeak.setVisibility(ImageButton.INVISIBLE);
+			} else {
+				// Check the documentation for other possible result codes.
+				// For example, the language may be available for the locale,
+				// but not for the specified country and variant.
+
+				// The TTS engine has been successfully initialized.
+				// Allow the user to press the button for the app to speak
+				// again.
+				btnSpeak.setEnabled(true);
+				btnSpeak.setVisibility(ImageButton.VISIBLE);
+				speakerEnabled  = true;
+			}
+		} else {
+			// Initialization failed.
+			Log.e(ApplicationConstants.EXCEPTION_TAG, "Could not initialize TextToSpeech.");
+		}
 	}
 }

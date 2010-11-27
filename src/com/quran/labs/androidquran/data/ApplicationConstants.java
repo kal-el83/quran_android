@@ -10,6 +10,10 @@ public class ApplicationConstants {
 	public static final int BOOKMARKS_CODE = SETTINGS_CODE + 1;
 	public static final int QURAN_VIEW_CODE = BOOKMARKS_CODE + 1;
 	public static final int TRANSLATION_VIEW_CODE = QURAN_VIEW_CODE + 1;
+	public static final int TTS_CHECK_CODE = TRANSLATION_VIEW_CODE + 1;
+	
+	// Application Exception tag
+	public static final String EXCEPTION_TAG = "QuranAndroidTag";
 	
 	// Numerics
 	public static final int DEFAULT_TEXT_SIZE = 15;
