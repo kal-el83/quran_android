@@ -48,27 +48,23 @@ public class TranslationActivity extends GestureQuranActivity implements OnInitL
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		try {
-			setContentView(R.layout.quran_translation);
-			txtTranslation = (TextView) findViewById(R.id.translationText);
-			btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
-			loadPageState(savedInstanceState);
-			gestureDetector = new GestureDetector(new QuranGestureDetector());
-			adjustTextSize();
-			renderTranslation();
-			checkTtsSupport();
-			btnSpeak.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					if (tts != null && speakerEnabled) {
-						tts.speak(txtTranslation.getText().toString(), TextToSpeech.QUEUE_ADD, null);
-					}
+		setContentView(R.layout.quran_translation);
+		txtTranslation = (TextView) findViewById(R.id.translationText);
+		btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
+		loadPageState(savedInstanceState);
+		gestureDetector = new GestureDetector(new QuranGestureDetector());
+		adjustTextSize();
+		renderTranslation();
+		checkTtsSupport();
+		btnSpeak.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (tts != null && speakerEnabled) {
+					tts.speak(txtTranslation.getText().toString(), TextToSpeech.QUEUE_ADD, null);
 				}
-			});
-		} catch (Exception e) {
-			System.out.println();
-		}
+			}
+		});
 	}
 	
 	private void checkTtsSupport() {
