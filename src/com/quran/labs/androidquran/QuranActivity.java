@@ -2,7 +2,6 @@ package com.quran.labs.androidquran;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.quran.labs.androidquran.common.BaseQuranActivity;
 import com.quran.labs.androidquran.data.ApplicationConstants;
 import com.quran.labs.androidquran.data.QuranInfo;
-import com.quran.labs.androidquran.util.QuranScreenInfo;
 import com.quran.labs.androidquran.util.QuranSettings;
 
 public class QuranActivity extends BaseQuranActivity {
@@ -24,18 +22,9 @@ public class QuranActivity extends BaseQuranActivity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.quran_list);
-        QuranSettings.load(prefs);
-        
-        Intent i = new Intent(this, QuranDataActivity.class);
-		this.startActivityForResult(i, ApplicationConstants.DATA_CHECK_CODE);
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.quran_list);
     }
-    
-    public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		QuranScreenInfo.getInstance().setOrientation(newConfig.orientation);
-	}
     
     @Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {

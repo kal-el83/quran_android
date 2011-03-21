@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	
+	<!-- Index and Jump To -->
+	<TableRow android:layout_width="fill_parent" android:weightSum="2">
+			<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:gravity="center"
+			android:layout_weight="1">
+				<Button android:id="@+id/btnIndex" android:background="@drawable/index"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:id="@+id/txtIndex" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Index"
+					android:layout_below="@id/btnIndex" android:gravity="bottom"
+					android:textColor="#ffffff" />
+			</LinearLayout>
+	
+			<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:gravity="center"
+			android:layout_weight="1">
+				<ImageButton android:id="@+id/btnJump" android:background="@drawable/jump"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:id="@+id/txtJump" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Jump"
+					android:layout_below="@id/btnJump" android:gravity="bottom"
+					android:textColor="#ffffff" />
+			</LinearLayout>
+	</TableRow>
+	
+	<!-- Bookmarks and Resume Reading -->
+	<TableRow android:layout_width="fill_parent" android:weightSum="2">
+			<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:gravity="center"
+			android:layout_weight="1">
+				<ImageButton android:id="@+id/btnBookmarks" android:background="@drawable/bookmarks"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:id="@+id/txtBookmarks" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Bookmarks"
+					android:layout_below="@id/btnBookmarks" android:gravity="bottom"
+					android:textColor="#ffffff" />
+			</LinearLayout>
+	
+			<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:gravity="center"
+			android:layout_weight="1">
+				<ImageButton android:id="@+id/btnLastPage" android:background="@drawable/last_page"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:id="@+id/txtLastPage" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Resume Reading"
+					android:layout_below="@id/btnLastPage" android:gravity="bottom"
+					android:textColor="#ffffff" />
+			</LinearLayout>
+	</TableRow>
+	
+	<!-- Show Translations and Manage Translations -->
+	<TableRow android:layout_width="fill_parent" android:weightSum="2">
+			<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:gravity="center"
+			android:layout_weight="1">
+				<ImageButton android:id="@+id/btnTranslation" android:background="@drawable/translation"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:id="@+id/txtTranslation" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Show Translation"
+					android:layout_below="@id/btnTranslation" android:gravity="bottom"
+					android:textColor="#ffffff" />
+			</LinearLayout>
+	
+			<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:gravity="center"
+			android:layout_weight="1">
+				<ImageButton android:id="@+id/btnDownloads" android:background="@drawable/downloads"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:id="@+id/txtDownloads" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Downloads"
+					android:layout_below="@id/btnDownloads" android:gravity="bottom"
+					android:textColor="#ffffff" />
+			</LinearLayout>
+	</TableRow>
+</TableLayout>
