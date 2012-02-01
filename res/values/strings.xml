@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="errorString">Could not download Quran Pages!</string>
+	<string name="errorString">Could not download Quran pages!</string>
 	<string name="app_name">Quran Android</string>
 	<string name="pageNotFound">Page not found.</string>
-	<string name="pageLoading">Page Loading...</string>
-	<string name="downloadPrompt_title">Download Required Files?</string>
+	<string name="pageLoading">Page loading...</string>
+	<string name="downloadPrompt_title">Download required files?</string>
 	<string name="downloadPrompt">For optimal performance, some files must be
-		downloaded to the sd card.
-		If you choose not to do this now, each page will take significantly
-		longer to load. Would you
-		like to download the required files now?</string>
+		downloaded to the SD card. If you choose not to do this now, each page will take significantly
+		longer to load. Would you like to download the required files now?</string>
 	<string name="downloadTranslationPrompt">Would you
 		like to download the required translations now?</string>
 	<string name="downloadPrompt_ok">Yes</string>
 	<string name="downloadPrompt_no">No</string>
 	<string name="downloading_title">Downloading...</string>
-	<string name="downloading_message">Please wait for the files to download. (Resume supported)</string>
+	<string name="downloading_message">Please wait for the files to download (resume supported)</string>
 	<string name="extracting_title">Processing...</string>
-	<string name="extracting_message">Please wait the files are processed.</string>
+	<string name="extracting_message">Please wait while the files are processed...</string>
 	<string name="menu_jump">Jump</string>
-	<string name="menu_about">About Us</string>
+	<string name="menu_about">About us</string>
 	<string name="menu_settings">Settings</string>
 	<string name="menu_jump_last_page">Last page</string>
 	<string name="menu_bookmarks">Bookmarks</string>
 	<string name="menu_bookmarks_remove">Remove</string>
 	<string name="menu_bookmarks_view">View</string>
-	<string name="menu_translation">Show Translation</string>
+	<string name="menu_translation">Show translation</string>
 	<string name="menu_bookmarks_add">Add</string>
-	<string name="menu_bookmarks_saved">Bookmark Saved</string>
-	<string name="menu_bookmarks_removed">Bookmark Removed</string>
+	<string name="menu_bookmarks_saved">Bookmark saved</string>
+	<string name="menu_bookmarks_removed">Bookmark removed</string>
 	<string name="menu_bookmarks_help">Help</string>
 	<string name="menu_help">Help</string>
-	<string name="menu_get_translations">Get Translations</string>
-	<string name="jump_dialog_title">Jump To Page</string>
-	<string name="page_hint">Page Number</string>
+	<string name="menu_get_translations">Get translations</string>
+	<string name="jump_dialog_title">Jump to page</string>
+	<string name="page_hint">Page number</string>
 	<string name="refresh">Refresh</string>
 	<string name="go">Go</string>
 	<string name="cancel">Cancel</string>
@@ -45,41 +43,39 @@
 	<string name="email_subject">Feedback</string>
 	<string name="email_to">quran.android@gmail.com</string>
 	<string name="aboutUs">Quran Android is a free, open source Quran
-		application for Android.  The images used are from the quran.com
-		project, the audio comes from everyayah.com, 
+		application for Android. The images used are from the Quran.com
+		project, the audio comes from EveryAyah.com, 
 		the data used in the translations and Arabic comes from
-		tanzil.net.
+		Tanzil.net.
 		\n\nCredits:
-		\n Ahmed Farra - bugfixes and many contributions.
-		\n Mahmoud Hossam - bugfixes.
+		\n Ahmed Farra - bugfixes and many contributions
+		\n Mahmoud Hossam - bugfixes
 		\n @fo2ad - audio recitation support
 		\n @wnafee - page flip animation (based on android-page-curl project)
-		\n @hams_rrr - arabic support for non-arabic phones
-		\n @neo_4583 - arabic reshaper project
-		\n @somaiagabr - graphics and arabic translation
-		\n Mehmed Mahmudoglu - turkish translation
+		\n @hams_rrr - Arabic support for non-Arabic phones
+		\n @neo_4583 - Arabic reshaper project
+		\n @somaiagabr - graphics and Arabic translation
+		\n Mehmed Mahmudoglu - Turkish translation
 		\n\nNew features in this release:
-		\n- Audio Recitations (thanks to @fo2ad)
-		\n- Minor bugfixes.
-		\n\nLa tansawna men saleh el doaa.
+		\n- Audio recitations (thanks to @fo2ad)
+		\n- Minor bugfixes
+		\n\nLaa tansawna men saleh el doaa.
 	</string>
 	<string name="help_title">Quran Android Help</string>
-	<string name="help">- Flip your screen to landscape mode for a zoomed in version.
-	    \n- Change pages by swiping your finger across the screen.
-	    \n- Tap the screen to get a bookmark button, a slider for switching pages and audio.
-	    \n- You can fix the orientation in either landscape or portrait modes.
-	    \n- Browse and download available translations (choose Menu > Get Translations).
-	    \n- You can download as many translations as you want, yet only one translation
+	<string name="help">- Flip your screen to landscape mode for a zoomed-in version.
+	    \n- Orientation can be fixed to either landscape or portrait mode in settings.
+		\n- Change pages by swiping across the screen.
+	    \n- Tap the screen to display bookmark button, slider for switching pages, and audio controls.
+	    \n- Browse and download available translations (Menu > Get translations).
+	    \n- You can download as many translations as you want but only one translation
 	    can be active for viewing and searching.
-	    \n- Adjust translation text size to your preference via Settings.
 	    \n- Initial search implementation allows you to search the active translation 
 	    via the search button.
- 	    \n- On tapping the center of the screen and you will find the page bookmark 
- 	    option in the top left corner. 
- 	    tap on the bookmark button to toggle the page bookmark state.
+		\n- Adjust translation text size to your preference via settings.
+ 	    \n- Tap on the bookmark button to toggle the page bookmark state.
 	    \n- You can add as many bookmarks as you\'d like.
-	    \n- The application remembers the last page you were reading and displays it when you restart the app.
-	    \n- Don\'t forget to check out the settings.</string>
+	    \n- The application remembers the last page you were reading and re-opens it when you restart the app.
+	    \n- Remember to explore the settings.</string>
 	<string name="settings_use_arabic_names">Arabic sura names.</string>
 	<string name="settings_keep_screen_on">Keep screen on.</string>
 	<string name="prefs_use_arabic_names">useArabicNames</string>
@@ -102,29 +98,29 @@
 
     <!-- Search failure message. -->
     <string name="no_results">No results found for \"%s\"</string>
-    <string name="no_active_translation">No active translation set, set an active translation first (Settings > Set Active Translation) and then search again.</string>
-    <string name="set_active_translation">Set Active Translation</string>
-    <string name="no_translations_available">You have not got any available translations, please download a translation first (Menu > Get More Translations) and then search again.</string>
-    <string name="prefs_category_reading">Reading Preferences</string>
-    <string name="prefs_category_translation">Translation Preferences</string>
-    <string name="prefs_category_display_settings">Display Settings</string>
+    <string name="no_active_translation">No active translation set, set an active translation first (Settings > Set active translation) and then search again.</string>
+    <string name="set_active_translation">Set active translation</string>
+    <string name="no_translations_available">No translations available, please download a translation first (Menu > Get more translations) and then search again.</string>
+    <string name="prefs_category_reading">Reading preferences</string>
+    <string name="prefs_category_translation">Translation preferences</string>
+    <string name="prefs_category_display_settings">Display settings</string>
     <string name="prefs_active_translation">activeTranslation</string>
     
-    <string name="loading_translations">Loading Translations List, Please wait..</string>
+    <string name="loading_translations">Loading translation list, please wait...</string>
     <string name="downloaded_translations">Downloaded</string>
-    <string name="available_translations">Available for Download</string>
+    <string name="available_translations">Available for download</string>
     <string name="sdcard_required">SD card should be mounted to download translations.</string>
     <string name="download_a_translation">Download %s?</string>
     <string name="translation_downloaded">%s is already downloaded.</string>
     <string name="download_button">Download</string>
     <string name="remove_button">Remove</string>
-    <string name="set_active">Set Active</string>
-    <string name="prompt_select_ayah">Select Ayah</string>
-    <string name="prompt_select_sura">Select Sura</string>
-    <string name="prompt_select_reciter">Select Reciter</string>
+    <string name="set_active">Set active</string>
+    <string name="prompt_select_ayah">Select aya</string>
+    <string name="prompt_select_sura">Select sura</string>
+    <string name="prompt_select_reciter">Select reciter</string>
 	<string name="play_dialog_message">Start playing from...</string>
-	<string name="play_dialog_page">Current Page (%s)</string>
+	<string name="play_dialog_page">Current page (%s)</string>
 	<string name="play_dialog_resume">Resume %1$s : %2$s</string>
 	<string name="download_dialog_message">Choose download option</string>
-	<string name="download_dialog_page">Current Page (%s)</string>
+	<string name="download_dialog_page">Current page (%s)</string>
 </resources>
